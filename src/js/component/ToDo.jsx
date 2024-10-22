@@ -6,13 +6,8 @@ import ToDoFooter from "./ToDoFooter.jsx"
 import '../../styles/ToDo.css'
 
 
-
-
-
-
-
 const ToDo = () => {
-
+    
     
     const todoList = [
         { id: 1, title: 'Buy groceries', done: false },
@@ -21,6 +16,8 @@ const ToDo = () => {
         { id: 4, title: 'Pay electricity bill', done: true },
         { id: 5, title: 'Read a book', done: false }
         ];
+
+        
     
 
     const [toDo, setToDo] = useState("");
