@@ -1,13 +1,13 @@
 import React from 'react';
 
-const ToDoFooter = ({todos}) => {
+const ToDoFooter = ({tasks}) => {
 
     return(
         <footer className='footer'>
-            {todos.length !== 1 
+            {tasks.length !== 1 
             ? 
-            `${todos.length} items left` : 
-            `${todos.length} item left`}
+            `${tasks.length} items left` : 
+            `${tasks.length} item left`}
         </footer>
     );
 }
