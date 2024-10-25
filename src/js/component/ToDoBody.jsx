@@ -11,22 +11,31 @@ const ToDoBody = ({tasks, setTasks}) => {
     
     let renderTasks = tasks.map((task) => {
         return (
-            <li className='list-item' key={task.id}>
+            <li className='list-group-item' key={task.id}>
                 <label>{task.title}</label>
-                <button className='deleteButton' onClick={() => deleteTask(task)}>X</button>
+                <button className='deleteButton' onClick={() => deleteTask(task)}>Done</button>
             </li>
         ) 
     });
    
     return(
         <section className='todo-body'>
-            <ul className="todo-list">
+            <ul className="list-group">
+                <li className='list-group-item' key={99999}>
+                    <label>Walk the dog</label>
+                    <button className='deleteButton' onClick={() => deleteTask(task)}>Done</button>
+                </li>
+                <li className='list-group-item' key={99998}>
+                    <label>Deliver hay to the horses</label>
+                    <button className='deleteButton' onClick={() => deleteTask(task)}>Done</button>
+                </li>
                 {
                     tasks.length !== 0
                         ? 
                         renderTasks 
                         : 
-                        "No tasks. Add a task."                }
+                        "No tasks. Add a task."                
+                }
             </ul>
         </section>
 
