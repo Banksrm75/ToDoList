@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ToDoFooter = ({tasks}) => {
+const TasksLeft = ({tasks}) => {
 
     return(
         <footer className='footer'>
@@ -12,4 +12,4 @@ const ToDoFooter = ({tasks}) => {
     );
 }
 
-export default ToDoFooter;
+export default TasksLeft;

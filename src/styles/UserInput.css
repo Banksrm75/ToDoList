@@ -1,0 +1,12 @@
+.taskEntry {
+    width: 350px;
+    height: 100%;
+}
+
+.AddATask {
+    background-color: hsla(120, 100%, 34%, 0.801);
+    color: hsl(118, 80%, 29%);
+    font-size: x-small;
+    width: 60px;
+    height: 100%
+}

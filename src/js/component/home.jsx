@@ -1,6 +1,6 @@
 import React from "react";
 
-import ToDo from "./ToDo.jsx";
+import ToDo from "./Paper.jsx";
 
 
 const Home = () => {
