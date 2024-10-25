@@ -1,7 +1,9 @@
 import React from 'react'
+import '../../styles/UserInput.css'
 
-const ToDoHeader = ({toDo, setToDo, tasks, setTasks, counter, setCounter}) => {
 
+const UserInput = ({toDo, setToDo, tasks, setTasks, counter, setCounter}) => {
+    
     // Validate user input  (toDo variable stores input in real time)
     const validateInput = () => {
         if (toDo === ""){
@@ -28,20 +30,24 @@ const ToDoHeader = ({toDo, setToDo, tasks, setTasks, counter, setCounter}) => {
 
     // get input ( -> string ) ==> add to array ==> set as a todo    
     return (
-        <>
-            <header className='todo-header'>
+        <div className="userInput row">
+            <div className="task col-10">
                 {/* input's task is to update the todo variable (string) string -> add to array ->*/}
                 <input 
+                    className='taskEntry'
                     type="text"
                     placeholder="What needs to be done?"
                     onChange={e => setToDo(e.target.value)}
                     value={toDo}
                 />
-                <button className='AddATask' onClick={validateInput}>Add Task</button>                       
-            </header>
-        </>
-        
+                
+            </div>
+            <div className="button col-2">
+                <button className='AddATask' onClick={validateInput}>Add Task</button>
+            </div>
+        </div>
     );
+        
 }
 
-export default ToDoHeader;
+export default UserInput

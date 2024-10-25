@@ -1,0 +1,17 @@
+body {
+    margin-top: 50px;
+    display: grid;
+    justify-content: center;
+}
+.paper {
+    background-color: antiquewhite;
+    border: 3px solid black;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+.title {
+    display: grid;
+    justify-content: center;
+}
