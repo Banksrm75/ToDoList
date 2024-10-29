@@ -5,17 +5,27 @@ const ListOfTasks = ({tasks, setTasks}) => {
 
     const deleteTask = (selectedTask) => {
        
-        selectedTask.done = true;
-        let newArray = tasks.filter(task => task.done !== true);
-        setTasks(newArray);
+        // use fetch to delete a task
+        fetch(`https://playground.4geeks.com/todo/todos/${selectedTask}`, {
+            method: "DELETE"
+        })
+   
+        .then(response => {
+            if (response.ok) {
+                let newArray = tasks.filter(task => task.id !== selectedTask);
+                setTasks(newArray);
+            }
+            })
+        .then(() => console.log("Successfully Deleted"))
+        .catch(error => console.log(error));
     }
     
     let renderTasks = tasks.map((task) => {
         return (
             <li className='list-group-item' key={task.id}>
-                <label className="task col-10" >{task.title}</label>
+                <label className="task col-10" >{task.label}</label>
                 <button className='deleteButton col-2' 
-                        onClick={() => deleteTask(task)}>
+                        onClick={() => deleteTask(task.id)}>
                         Done
                     </button>
             </li>

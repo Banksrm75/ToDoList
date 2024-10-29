@@ -1,0 +1,26 @@
+.useroptions {
+    display: flex;
+    justify-content: center;
+}
+
+.DeleteUser {
+    margin-top: 20px;
+    background-color: hsl(0, 100%, 40%);
+    font-weight: bolder;
+}
+
+.DeleteUser:hover {
+    background-color: hsl(0, 100%, 50%);
+}
+
+.AddUser {
+    margin-top: 20px;
+    margin-left: 5px;
+    background-color: hsl(250, 100%, 50%);
+    color: white;
+    font-weight: bolder;
+}
+
+.AddUser:hover {
+    background-color: hsl(250, 100%, 40%);
+}
