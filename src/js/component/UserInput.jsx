@@ -1,32 +1,37 @@
 import React from 'react'
 import '../../styles/UserInput.css'
+import { postData } from '../lib/actions'
 
 
-const UserInput = ({toDo, setToDo, tasks, setTasks, counter, setCounter}) => {
+const UserInput = ({toDo, setToDo, setTasks, userName, setUsername}) => {
     
     // Validate user input  (toDo variable stores input in real time)
     const validateInput = () => {
         if (toDo === ""){
             alert("Please add a task.");
         }
-        addATask();
-        setToDo("");
+        else{
+            addATask();
+            setToDo("");
+        }
+        
     }
 
     // Create the task object
-    // SPREAD OPERATOR inside setTasks to add task to existing list
+    
     const addATask = () => {
+        // display on the console the todo string written in the textbox
+        // console.log("Creating a new todo: ", todo)
         
-        //create a new object with ids, title and done keys
-        let newTask = { id: counter, title: toDo, done: false };
-
-        console.log(newTask);
-        // use setTasks to append to the tasks[] array
-        setTasks([...tasks, newTask]);
-        
-        // increment the counter by 1
-        setCounter(counter+1);
-    }
+        // create a new object with id, title, and done keys
+        let newTaskItem = {
+            label: toDo,
+            is_done: false
+        }
+        postData(userName, setTasks, setUsername, newTaskItem);
+        setToDo("")
+    };
+    
 
     // get input ( -> string ) ==> add to array ==> set as a todo    
     return (

@@ -4,11 +4,12 @@ import '../../styles/Paper.css'
 import UserInput from './UserInput.jsx';
 import ListOfTasks from './ListOfTasks.jsx';
 import TasksLeft from './TasksLeft.jsx';
-import DeleteUser from './AddAndDeleteUser.jsx';
+import AddAndDeleteUser from './ModifyUser.jsx';
+import { getData } from '../lib/actions.js';
 
 const ToDo = () => {
 
-    const [userName, setUsername] = useState("")
+    const [userName, setUsername] = useState("Banksrm")
     const [toDo, setToDo] = useState("");
     const [tasks, setTasks] = useState([]);
     const [counter, setCounter] = useState(0);
@@ -20,21 +21,8 @@ const ToDo = () => {
     useEffect(() => {
 
         // use our fetch to retrieve our todo list in the playground!
-        const getData = async () => {
-            const response = await fetch(`https://playground.4geeks.com/todo/users/Banksrm`);
-            if (response.ok) {
-                const data = await response.json();
-                setTasks(data.todos)
-                setUsername(data.name)
-            } else {
-                console.log('error: ', response.status, response.statusText);
-                /* Handle the error returned by the HTTP request */
-                return {error: {status: response.status, statusText: response.statusText}};
-            };
-        };
-
-        getData();
-    }, [])
+        getData(setTasks, userName, setUsername);
+    }, []);
 
     return(
         <>
@@ -46,22 +34,24 @@ const ToDo = () => {
                     setToDo={setToDo}
                     tasks = {tasks}
                     setTasks = {setTasks}
-                    counter = {counter}
-                    setCounter = {setCounter}
+                    userName = {userName}
+                    setUserName = {setUsername}
                 />
                 <ListOfTasks 
                     tasks = {tasks}
                     setTasks = {setTasks}
+                    userName = {userName}
+                    setUserName = {setUsername}
                 />
                 <TasksLeft 
                     tasks = {tasks}
                 />
             </div>
             <div className="users">
-            <DeleteUser 
+            <AddAndDeleteUser
                 userName = {userName}
+                setUserName = {setUsername}
                 />
-                {/* <NewUser /> */}
             </div>
        
             

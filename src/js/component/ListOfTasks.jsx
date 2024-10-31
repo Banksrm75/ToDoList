@@ -1,31 +1,17 @@
 import React from "react";
 import '../../styles/ListOfTasks.css'
+import { getData, deleteTask } from "../lib/actions";
 
-const ListOfTasks = ({tasks, setTasks}) => {
-
-    const deleteTask = (selectedTask) => {
-       
-        // use fetch to delete a task
-        fetch(`https://playground.4geeks.com/todo/todos/${selectedTask}`, {
-            method: "DELETE"
-        })
-   
-        .then(response => {
-            if (response.ok) {
-                let newArray = tasks.filter(task => task.id !== selectedTask);
-                setTasks(newArray);
-            }
-            })
-        .then(() => console.log("Successfully Deleted"))
-        .catch(error => console.log(error));
-    }
+const ListOfTasks = ({tasks, setTasks, userName, setUsername}) => {
     
+    
+        
     let renderTasks = tasks.map((task) => {
         return (
             <li className='list-group-item' key={task.id}>
                 <label className="task col-10" >{task.label}</label>
                 <button className='deleteButton col-2' 
-                        onClick={() => deleteTask(task.id)}>
+                        onClick={() => deleteTask(task.id, setTasks, userName, setUsername)}>
                         Done
                     </button>
             </li>
