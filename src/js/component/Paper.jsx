@@ -7,7 +7,7 @@ import TasksLeft from './TasksLeft.jsx';
 import AddAndDeleteUser from './ModifyUser.jsx';
 import { getData } from '../lib/actions.js';
 
-const ToDo = () => {
+const Paper = () => {
 
     const [userName, setUsername] = useState("Banksrm")
     const [toDo, setToDo] = useState("");
@@ -60,4 +60,4 @@ const ToDo = () => {
     );
 }
 
-export default ToDo
+export default Paper

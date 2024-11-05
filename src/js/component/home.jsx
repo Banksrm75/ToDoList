@@ -1,12 +1,12 @@
 import React from "react";
 
-import ToDo from "./Paper.jsx";
+import Paper from "./Paper.jsx";
 
 
 const Home = () => {
 	return (
 		<>
-			<ToDo />
+			<Paper />
 			
 		</>
 	);
